@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AutomateStudio by Mico | Spreadsheets, Reports & Workflow Automation</title>
+  <title>AutomateStudio by Mico | Spreadsheet & Process Automation</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,337 +11,400 @@
   <style>
     body {
       font-family: 'Inter', sans-serif;
-      background-color: #0b0d12;
-      color: #f1f5f9;
+      background: radial-gradient(circle at 18% 12%, #1d222e 0%, #11141c 45%, #0c0e14 100%);
+      color: #f8fafc;
     }
     .font-mono-code {
       font-family: 'JetBrains Mono', monospace;
     }
-    .bento-card {
-      background: linear-gradient(180deg, rgba(23, 27, 36, 0.92) 0%, rgba(16, 19, 26, 0.96) 100%);
-      border: 1px solid rgba(148, 163, 184, 0.14);
-      transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+    .glass-card {
+      background: linear-gradient(180deg, rgba(28, 33, 45, 0.85) 0%, rgba(18, 21, 30, 0.94) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      box-shadow: 0 20px 45px -20px rgba(0, 0, 0, 0.75);
+      transition: border-color 0.25s ease, transform 0.25s ease;
     }
-    .bento-card:hover {
-      border-color: rgba(245, 158, 11, 0.45);
+    .glass-card:hover {
+      border-color: rgba(245, 190, 65, 0.45);
       transform: translateY(-2px);
-      box-shadow: 0 14px 34px -14px rgba(245, 158, 11, 0.16);
+    }
+    .sub-panel {
+      background: rgba(13, 16, 23, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.07);
     }
   </style>
 </head>
-<body class="antialiased selection:bg-amber-400 selection:text-slate-950">
+<body class="min-h-screen antialiased selection:bg-amber-400 selection:text-slate-950">
 
-  <!-- Top Navigation -->
-  <header class="sticky top-0 z-50 border-b border-slate-800/80 bg-[#0b0d12]/85 backdrop-blur-md">
-    <div class="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-8">
-      <a href="#" class="flex items-center gap-3">
-        <span class="flex h-9 w-9 items-center justify-center rounded-xl border border-amber-400/40 bg-amber-400/10 text-amber-400">
-          <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/>
-          </svg>
-        </span>
-        <div class="leading-tight">
-          <span class="text-base font-bold tracking-tight text-white">AutomateStudio</span>
-          <span class="text-sm font-medium text-amber-400"> by Mico</span>
-        </div>
+  <!-- Navbar -->
+  <header class="sticky top-0 z-50 border-b border-white/[0.06] bg-[#10131b]/80 backdrop-blur-md">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center gap-2.5">
+        <svg class="h-7 w-7 text-amber-400" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8">
+          <circle cx="8" cy="8" r="3.2" />
+          <circle cx="20" cy="8" r="3.2" />
+          <circle cx="8" cy="20" r="3.2" />
+          <circle cx="20" cy="20" r="3.2" />
+          <path d="M11.2 8h5.6M8 11.2v5.6M20 11.2v5.6M11.2 20h5.6" stroke-opacity="0.65"/>
+        </svg>
+        <span class="text-lg font-bold tracking-tight text-white">AutomateStudio</span>
+        <span class="text-sm font-medium text-slate-400">by Mico</span>
       </a>
 
+      <!-- Center Nav Links -->
       <nav class="hidden items-center gap-7 text-sm font-medium text-slate-300 md:flex">
-        <a href="#solutions" class="transition hover:text-amber-400">Solutions</a>
-        <a href="#work" class="transition hover:text-amber-400">Case Studies</a>
+        <a href="#solutions" class="flex items-center gap-1 transition hover:text-amber-400">
+          Solutions
+          <svg class="h-3.5 w-3.5 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </a>
+        <a href="#work" class="transition hover:text-amber-400">Work</a>
         <a href="#tools" class="transition hover:text-amber-400">Tools</a>
         <a href="#about" class="transition hover:text-amber-400">About</a>
-        <a href="#contact" class="rounded-lg bg-amber-400 px-4 py-2 font-semibold text-slate-950 transition hover:bg-amber-300">
-          Free Audit
-        </a>
+        <a href="#contact" class="transition hover:text-amber-400">Contact</a>
       </nav>
 
-      <a href="#contact" class="rounded-lg bg-amber-400 px-3.5 py-2 text-xs font-bold text-slate-950 md:hidden">
+      <!-- Right CTA -->
+      <a href="#contact" class="rounded-lg bg-[#f3c14b] px-4 py-2 text-xs font-bold text-slate-950 shadow-md shadow-amber-500/10 transition hover:bg-amber-300 sm:text-sm">
         Free Audit
       </a>
     </div>
   </header>
 
-  <!-- Hero Bento Grid -->
-  <section class="relative overflow-hidden border-b border-slate-800/80 py-14 sm:py-20">
-    <div class="pointer-events-none absolute -top-24 left-1/4 h-72 w-72 rounded-full bg-amber-500/10 blur-3xl"></div>
-    <div class="pointer-events-none absolute right-1/4 top-1/3 h-72 w-72 rounded-full bg-sky-500/10 blur-3xl"></div>
+  <!-- Main Above-the-Fold Hero + Bento Showcase -->
+  <main class="mx-auto max-w-6xl px-6 pt-10 pb-16 sm:pt-14">
 
-    <div class="relative mx-auto max-w-6xl px-5 sm:px-8">
-      <div class="grid gap-6 lg:grid-cols-12">
+    <!-- Row 1: Open Floating Hero Left + Smart Finance Trackers Card Right -->
+    <div class="grid items-center gap-8 lg:grid-cols-12">
 
-        <!-- Left Hero Copy (7 cols) -->
-        <div class="bento-card flex flex-col justify-between rounded-2xl p-7 sm:p-10 lg:col-span-7">
-          <div>
-            <div class="inline-flex items-center gap-2 rounded-full border border-amber-400/30 bg-amber-400/10 px-3.5 py-1 text-xs font-semibold text-amber-300">
-              <span class="h-2 w-2 rounded-full bg-amber-400"></span>
-              Fewer manual clicks. Faster reports. Smarter workflows.
-            </div>
+      <!-- Left: Open Typography (No Box Wrapper, Just Like Mockup) -->
+      <div class="lg:col-span-7">
+        <h1 class="text-4xl font-bold tracking-tight text-white sm:text-5xl leading-[1.12]">
+          Stop doing manual work twice.
+          <span class="mt-1 block font-bold text-[#f3c14b]">
+            Spreadsheets, Reports &amp; Workflow Automation
+          </span>
+        </h1>
 
-            <h1 class="mt-6 text-3xl font-extrabold tracking-tight text-white sm:text-5xl leading-[1.12]">
-              Stop doing manual work twice.
-              <span class="mt-1 block text-amber-400">Put your spreadsheets, reports, and workflows on autopilot.</span>
-            </h1>
+        <p class="mt-5 max-w-xl text-base leading-relaxed text-slate-300">
+          Put your spreadsheets, reports, and workflows on autopilot. Turn hours of repetitive tasks into automated Google Workspace systems, smart Excel/Sheets formulas, and clean data pipelines.
+        </p>
 
-            <p class="mt-5 max-w-2xl text-base leading-relaxed text-slate-300 sm:text-lg">
-              Turn hours of repetitive tasks into automated systems. I build custom <strong>Google Workspace automations (Apps Script)</strong>, smart Excel & Google Sheets formulas, clean data pipelines, automated Word/report templates, and practical finance trackers.
-            </p>
-          </div>
-
-          <div class="mt-8 flex flex-wrap items-center gap-4">
-            <a href="#contact" class="rounded-xl bg-amber-400 px-6 py-3.5 text-sm font-bold text-slate-950 shadow-lg shadow-amber-500/20 transition hover:bg-amber-300">
-              Automate My Workflow
-            </a>
-            <a href="#work" class="rounded-xl border border-slate-700 bg-slate-900/80 px-6 py-3.5 text-sm font-semibold text-slate-200 transition hover:border-amber-400/50 hover:text-white">
-              View Case Studies
-            </a>
-          </div>
-        </div>
-
-        <!-- Right Visual Bento Stack (5 cols) -->
-        <div class="grid gap-6 lg:col-span-5">
-
-          <!-- Smart Finance & Reporting Mini Preview -->
-          <div class="bento-card rounded-2xl p-6">
-            <div class="flex items-center justify-between">
-              <span class="text-xs font-semibold uppercase tracking-wider text-amber-400">Smart Finance & KPIs</span>
-              <span class="rounded-md bg-emerald-500/15 px-2.5 py-0.5 text-xs font-semibold text-emerald-300">Auto-Synced</span>
-            </div>
-            <h2 class="mt-2 text-lg font-bold text-white">Automated Budget, Cashflow & Report Trackers</h2>
-            <p class="mt-1.5 text-xs text-slate-400">
-              Live summaries, variance checks, and clean reporting tables without manual copy-pasting every cutoff.
-            </p>
-
-            <div class="mt-4 grid grid-cols-3 gap-3 rounded-xl border border-slate-800 bg-[#0d1017] p-3.5">
-              <div>
-                <span class="block text-[11px] text-slate-400">Time Saved</span>
-                <span class="mt-0.5 block text-base font-bold text-amber-400">+12 hrs/wk</span>
-              </div>
-              <div>
-                <span class="block text-[11px] text-slate-400">Manual Clicks</span>
-                <span class="mt-0.5 block text-base font-bold text-white">-85%</span>
-              </div>
-              <div>
-                <span class="block text-[11px] text-slate-400">Report Sync</span>
-                <span class="mt-0.5 block text-base font-bold text-emerald-400">1-Click</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Google Workspace & Apps Script Mini Preview -->
-          <div class="bento-card rounded-2xl p-6">
-            <div class="flex items-center justify-between">
-              <span class="text-xs font-semibold uppercase tracking-wider text-sky-400">Google Workspace + Apps Script</span>
-              <span class="font-mono-code text-[11px] text-slate-400">Code.gs + HTML</span>
-            </div>
-            <h2 class="mt-2 text-lg font-bold text-white">Forms, Sheets, Docs, Gmail & Web Dashboards</h2>
-            <div class="mt-3.5 rounded-xl border border-slate-800 bg-[#0d1017] p-3.5 font-mono-code text-xs text-slate-300">
-              <div class="flex items-center justify-between text-[11px] text-slate-500">
-                <span>workflow_trigger.gs</span>
-                <span class="text-amber-400">● Active</span>
-              </div>
-              <p class="mt-2 leading-relaxed">
-                <span class="text-amber-300">onFormSubmit()</span> → cleanData() → updateDashboard() → <span class="text-emerald-400">sendSummaryEmail()</span>
-              </p>
-            </div>
-          </div>
-
+        <div class="mt-7 flex flex-wrap items-center gap-3.5">
+          <a href="#contact" class="rounded-lg bg-[#f3c14b] px-5 py-3 text-sm font-bold text-slate-950 shadow-lg shadow-amber-500/15 transition hover:bg-amber-300">
+            Automate My Workflow
+          </a>
+          <a href="#work" class="rounded-lg border border-slate-600/80 bg-white/[0.03] px-5 py-3 text-sm font-semibold text-slate-200 transition hover:border-slate-400 hover:bg-white/[0.07]">
+            View Case Studies
+          </a>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- Core Solutions / Services -->
-  <section id="solutions" class="border-b border-slate-800/80 py-20">
-    <div class="mx-auto max-w-6xl px-5 sm:px-8">
-      <div class="flex flex-col justify-between gap-4 md:flex-row md:items-end">
-        <div>
-          <p class="text-xs font-bold uppercase tracking-widest text-amber-400">Core Services</p>
-          <h2 class="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
-            Turn hours of repetitive tasks into automated systems.
-          </h2>
+      <!-- Right: Smart Finance Trackers Visual UI Card -->
+      <div class="glass-card rounded-2xl p-4 sm:p-5 lg:col-span-5">
+        <div class="sub-panel overflow-hidden rounded-xl p-3.5">
+          <div class="grid grid-cols-12 gap-3">
+            <!-- Mini App Sidebar -->
+            <div class="col-span-3 border-r border-white/[0.06] pr-2 text-[10px] text-slate-400">
+              <div class="mb-3 flex items-center gap-1.5 font-semibold text-amber-400">
+                <span class="h-2 w-2 rounded-full bg-amber-400"></span>
+                <span>Studio</span>
+              </div>
+              <div class="space-y-2">
+                <div class="rounded bg-white/[0.06] px-1.5 py-1 text-white">Overview</div>
+                <div class="px-1.5 py-0.5">Cashflow</div>
+                <div class="px-1.5 py-0.5">Budgets</div>
+                <div class="px-1.5 py-0.5">Reports</div>
+                <div class="px-1.5 py-0.5">Logs</div>
+              </div>
+            </div>
+
+            <!-- Mini Finance Dashboard Content -->
+            <div class="col-span-9 space-y-2.5">
+              <div class="flex items-center justify-between">
+                <span class="text-[11px] font-semibold text-slate-200">Finance &amp; Ops Overview</span>
+                <span class="rounded bg-emerald-500/15 px-1.5 py-0.5 text-[9px] font-semibold text-emerald-300">Synced</span>
+              </div>
+
+              <div class="grid grid-cols-2 gap-2.5">
+                <!-- ROI Metric Box -->
+                <div class="rounded-lg border border-white/[0.06] bg-[#141822] p-2.5">
+                  <span class="text-[10px] text-slate-400">Time Saved</span>
+                  <div class="mt-1 text-lg font-extrabold text-white">+34%</div>
+                  <div class="mt-2 flex items-center gap-1 text-[9px] text-amber-300">
+                    <span class="inline-block h-2 w-2 rounded-full bg-amber-400"></span>
+                    Automated Reconciliation
+                  </div>
+                </div>
+
+                <!-- Mini Line + Bar Charts -->
+                <div class="space-y-2">
+                  <div class="rounded-lg border border-white/[0.06] bg-[#141822] p-2">
+                    <span class="block text-[9px] text-slate-400">Variance Trend</span>
+                    <svg class="mt-1 h-7 w-full" viewBox="0 0 100 28" fill="none">
+                      <path d="M2 22 L22 18 L42 20 L62 11 L82 13 L98 4" stroke="#f3c14b" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                  </div>
+                  <div class="rounded-lg border border-white/[0.06] bg-[#141822] p-2">
+                    <span class="block text-[9px] text-slate-400">Monthly Budget</span>
+                    <div class="mt-1.5 flex h-7 items-end gap-1.5">
+                      <span class="w-2 rounded-t bg-amber-400/50 h-3"></span>
+                      <span class="w-2 rounded-t bg-amber-400/70 h-5"></span>
+                      <span class="w-2 rounded-t bg-amber-400 h-6"></span>
+                      <span class="w-2 rounded-t bg-amber-400/60 h-4"></span>
+                      <span class="w-2 rounded-t bg-amber-400 h-7"></span>
+                      <span class="w-2 rounded-t bg-amber-400/80 h-5"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <p class="max-w-md text-sm text-slate-400">
-          Fewer manual clicks. Faster reports. Smarter workflows. Built around the tools your team already uses every day.
+
+        <h2 class="mt-4 text-lg font-bold text-white">Smart Finance Trackers</h2>
+        <p class="mt-1 text-xs text-slate-400">
+          Fewer manual clicks. Faster reports. Smarter workflows for budgets, cashflow, and operational logs.
         </p>
       </div>
+    </div>
 
-      <div class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        <!-- Service 1 -->
-        <div class="bento-card rounded-2xl p-6">
-          <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-400/15 text-amber-400 font-bold">01</div>
-          <h3 class="mt-4 text-lg font-bold text-white">Google Workspace & Apps Script</h3>
-          <p class="mt-2 text-sm leading-relaxed text-slate-300">
-            Custom scripts, scheduled triggers, automated email alerts, document generation, and lightweight HTML web dashboards synced to Google Sheets.
-          </p>
+    <!-- Row 2: Three Visual Bento Feature Cards (Exact Match to Mockup) -->
+    <div id="solutions" class="mt-8 grid gap-6 lg:grid-cols-3">
+
+      <!-- Card 1: Google Workspace Automation (Node Diagram) -->
+      <div class="glass-card flex flex-col justify-between rounded-2xl p-5">
+        <div class="sub-panel relative rounded-xl p-4">
+          <div class="grid grid-cols-3 items-center gap-2 text-center">
+            <!-- Left Nodes -->
+            <div class="space-y-3">
+              <div class="mx-auto flex flex-col items-center rounded-lg border border-purple-400/30 bg-purple-500/10 p-2">
+                <span class="text-xs font-bold text-purple-300">Forms</span>
+                <span class="mt-0.5 rounded bg-emerald-500/20 px-1.5 text-[9px] text-emerald-300">Trigger</span>
+              </div>
+              <div class="mx-auto flex flex-col items-center rounded-lg border border-rose-400/30 bg-rose-500/10 p-2">
+                <span class="text-xs font-bold text-rose-300">Gmail</span>
+                <span class="mt-0.5 text-[9px] text-slate-400">Auto-Alert</span>
+              </div>
+            </div>
+
+            <!-- Center Hub -->
+            <div class="flex flex-col items-center justify-center">
+              <div class="flex h-12 w-12 items-center justify-center rounded-xl border border-amber-400/50 bg-amber-400/15 text-amber-300 shadow-lg shadow-amber-500/10">
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                </svg>
+              </div>
+              <span class="mt-1.5 rounded bg-emerald-500/20 px-2 py-0.5 text-[9px] font-semibold text-emerald-300">Synced</span>
+            </div>
+
+            <!-- Right Nodes -->
+            <div class="space-y-3">
+              <div class="mx-auto flex flex-col items-center rounded-lg border border-emerald-400/30 bg-emerald-500/10 p-2">
+                <span class="text-xs font-bold text-emerald-300">Sheets</span>
+                <span class="mt-0.5 text-[9px] text-slate-400">Live Data</span>
+              </div>
+              <div class="mx-auto flex flex-col items-center rounded-lg border border-amber-400/30 bg-amber-500/10 p-2">
+                <span class="font-mono-code text-xs font-bold text-amber-300">&lt;/&gt;</span>
+                <span class="mt-0.5 text-[9px] text-slate-400">Apps Script</span>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <!-- Service 2 -->
-        <div class="bento-card rounded-2xl p-6">
-          <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-400/15 text-amber-400 font-bold">02</div>
-          <h3 class="mt-4 text-lg font-bold text-white">Excel, Sheets & Word Systems</h3>
-          <p class="mt-2 text-sm leading-relaxed text-slate-300">
-            Dynamic formulas, error-proof trackers, automated Word/report templates, and structured workbooks that eliminate repetitive encoding.
-          </p>
-        </div>
-
-        <!-- Service 3 -->
-        <div class="bento-card rounded-2xl p-6">
-          <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-400/15 text-amber-400 font-bold">03</div>
-          <h3 class="mt-4 text-lg font-bold text-white">Data Analysis & Reporting</h3>
-          <p class="mt-2 text-sm leading-relaxed text-slate-300">
-            Data cleaning, deduplication, SQL-backed tables, and visual KPI dashboards in Sheets, Excel, Looker Studio, or Power BI.
-          </p>
-        </div>
-
-        <!-- Service 4 -->
-        <div class="bento-card rounded-2xl p-6">
-          <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-400/15 text-amber-400 font-bold">04</div>
-          <h3 class="mt-4 text-lg font-bold text-white">Light Finance & Expense Trackers</h3>
-          <p class="mt-2 text-sm leading-relaxed text-slate-300">
-            Cashflow logs, budget vs. actual sheets, expense summaries, and billing/status trackers designed for clear financial visibility.
-          </p>
-        </div>
-
-        <!-- Service 5 -->
-        <div class="bento-card rounded-2xl p-6">
-          <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-400/15 text-amber-400 font-bold">05</div>
-          <h3 class="mt-4 text-lg font-bold text-white">Custom Web Trackers & Portals</h3>
-          <p class="mt-2 text-sm leading-relaxed text-slate-300">
-            Browser-based attendance, log submission, and status portals powered by Google Apps Script web apps with clean spreadsheet storage.
-          </p>
-        </div>
-
-        <!-- Service 6 -->
-        <div class="bento-card rounded-2xl p-6">
-          <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-400/15 text-amber-400 font-bold">06</div>
-          <h3 class="mt-4 text-lg font-bold text-white">Workflow Audit & Quick Fixes</h3>
-          <p class="mt-2 text-sm leading-relaxed text-slate-300">
-            Untangle broken formulas, slow spreadsheets, and bottlenecked weekly reports with fast, practical fixes your team can maintain easily.
+        <div class="mt-4">
+          <h3 class="text-lg font-bold text-white">Google Workspace Automation</h3>
+          <p class="mt-1.5 text-xs leading-relaxed text-slate-400">
+            Connect Google Forms, Sheets, Docs, and Gmail with custom Apps Script triggers and HTML web dashboards.
           </p>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- Case Studies -->
-  <section id="work" class="border-b border-slate-800/80 py-20">
-    <div class="mx-auto max-w-6xl px-5 sm:px-8">
-      <p class="text-xs font-bold uppercase tracking-widest text-amber-400">Sample Case Studies</p>
-      <h2 class="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
-        Fewer manual clicks. Faster reports. Smarter workflows.
-      </h2>
+      <!-- Card 2: Intelligent Data Systems (Code + Pipeline Nodes) -->
+      <div class="glass-card flex flex-col justify-between rounded-2xl p-5">
+        <div class="sub-panel rounded-xl p-3.5">
+          <div class="grid grid-cols-12 gap-2.5">
+            <!-- Mini Code Editor -->
+            <div class="col-span-6 rounded-lg border border-white/[0.06] bg-[#0a0c12] p-2.5 font-mono-code text-[10px] leading-relaxed text-slate-300">
+              <div class="mb-1.5 flex gap-1">
+                <span class="h-1.5 w-1.5 rounded-full bg-rose-400"></span>
+                <span class="h-1.5 w-1.5 rounded-full bg-amber-400"></span>
+                <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+              </div>
+              <p><span class="text-amber-300">function</span> sync() {</p>
+              <p class="pl-2 text-slate-400">cleanRows();</p>
+              <p class="pl-2 text-slate-400">buildReport();</p>
+              <p class="pl-2 text-emerald-400">return true;</p>
+              <p>}</p>
+            </div>
 
-      <div class="mt-10 grid gap-6 md:grid-cols-3">
-        <div class="bento-card flex flex-col justify-between rounded-2xl p-6">
-          <div>
-            <span class="text-xs font-semibold text-amber-400">Apps Script + Web App</span>
-            <h3 class="mt-2 text-lg font-bold text-white">Attendance & Time-Log Web System</h3>
-            <p class="mt-3 text-sm text-slate-300">
-              Replaced scattered manual check-ins with a web interface linked to Google Sheets via Apps Script, producing instant cutoff summaries.
-            </p>
+            <!-- Pipeline Flow Nodes -->
+            <div class="col-span-6 flex flex-col justify-between space-y-1.5 text-[10px]">
+              <div class="rounded border border-emerald-500/30 bg-emerald-500/10 px-2 py-1 text-emerald-300">
+                ● Spreadsheet Sync
+              </div>
+              <div class="text-center text-amber-400 leading-none">↓</div>
+              <div class="rounded border border-amber-400/30 bg-amber-400/10 px-2 py-1 text-amber-200">
+                ⚡ Formula &amp; Logic
+              </div>
+              <div class="text-center text-amber-400 leading-none">↓</div>
+              <div class="rounded border border-sky-400/30 bg-sky-500/10 px-2 py-1 text-sky-300">
+                🗄 Clean Database
+              </div>
+            </div>
           </div>
-          <p class="mt-6 border-t border-slate-800 pt-3 text-xs text-slate-400">Result: Zero manual log compiling</p>
         </div>
 
-        <div class="bento-card flex flex-col justify-between rounded-2xl p-6">
-          <div>
-            <span class="text-xs font-semibold text-amber-400">Sheets & Script Automation</span>
-            <h3 class="mt-2 text-lg font-bold text-white">Auto-Updating Gantt & Status Tracker</h3>
-            <p class="mt-3 text-sm text-slate-300">
-              Automated timeline bars, progress percentages, and color-coded status updates directly from task completion inputs.
-            </p>
-          </div>
-          <p class="mt-6 border-t border-slate-800 pt-3 text-xs text-slate-400">Result: Instant progress visibility</p>
-        </div>
-
-        <div class="bento-card flex flex-col justify-between rounded-2xl p-6">
-          <div>
-            <span class="text-xs font-semibold text-amber-400">Data & Reporting</span>
-            <h3 class="mt-2 text-lg font-bold text-white">Recurring Claims & Ops Summary</h3>
-            <p class="mt-3 text-sm text-slate-300">
-              Consolidated messy multi-sheet records into structured tables and clean dashboards for faster weekly review.
-            </p>
-          </div>
-          <p class="mt-6 border-t border-slate-800 pt-3 text-xs text-slate-400">Result: Hours saved every reporting cycle</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Tools Strip -->
-  <section id="tools" class="border-b border-slate-800/80 py-14">
-    <div class="mx-auto max-w-6xl px-5 sm:px-8">
-      <p class="text-center text-xs font-semibold uppercase tracking-widest text-slate-400">
-        Tools & Stack Used Across Builds
-      </p>
-      <div class="mt-6 flex flex-wrap items-center justify-center gap-3 text-xs font-semibold text-slate-200">
-        <span class="rounded-lg border border-slate-800 bg-slate-900/80 px-4 py-2">Google Workspace</span>
-        <span class="rounded-lg border border-slate-800 bg-slate-900/80 px-4 py-2">Google Apps Script</span>
-        <span class="rounded-lg border border-slate-800 bg-slate-900/80 px-4 py-2">Google Sheets</span>
-        <span class="rounded-lg border border-slate-800 bg-slate-900/80 px-4 py-2">Microsoft Excel</span>
-        <span class="rounded-lg border border-slate-800 bg-slate-900/80 px-4 py-2">Microsoft Word</span>
-        <span class="rounded-lg border border-slate-800 bg-slate-900/80 px-4 py-2">SQL</span>
-        <span class="rounded-lg border border-slate-800 bg-slate-900/80 px-4 py-2">Looker Studio</span>
-        <span class="rounded-lg border border-slate-800 bg-slate-900/80 px-4 py-2">Power BI</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- About & Contact CTA -->
-  <section id="about" class="py-20">
-    <div class="mx-auto max-w-6xl px-5 sm:px-8">
-      <div class="bento-card grid gap-8 rounded-2xl p-8 sm:p-10 lg:grid-cols-12 lg:items-center">
-        <div class="lg:col-span-7">
-          <p class="text-xs font-bold uppercase tracking-widest text-amber-400">About AutomateStudio by Mico</p>
-          <h2 class="mt-2 text-2xl font-bold tracking-tight text-white sm:text-3xl">
-            Stop doing manual work twice. Put your spreadsheets, reports, and workflows on autopilot.
-          </h2>
-          <p class="mt-4 text-sm leading-relaxed text-slate-300 sm:text-base">
-            I’m Mico—an independent builder focused on data management, reporting, and practical Google Workspace & spreadsheet automation. Instead of overcomplicating your stack, I build clean, dependable systems that cut manual work and save time every week.
+        <div class="mt-4">
+          <h3 class="text-lg font-bold text-white">Intelligent Data Systems</h3>
+          <p class="mt-1.5 text-xs leading-relaxed text-slate-400">
+            Advanced Excel &amp; Sheets formulas, data cleanup, SQL structuring, and automated Word/PDF templates.
           </p>
         </div>
+      </div>
 
-        <div id="contact" class="rounded-2xl border border-slate-800 bg-[#0d1017] p-6 lg:col-span-5">
-          <h3 class="text-lg font-bold text-white">Request a Free Workflow Audit</h3>
-          <p class="mt-1 text-xs text-slate-400">
-            Tell me which spreadsheet, report, or task takes too much time—I’ll share how we can automate it.
+      <!-- Card 3: Custom Dashboard Previews (KPIs + +28 hrs saved badge) -->
+      <div class="glass-card flex flex-col justify-between rounded-2xl p-5">
+        <div class="sub-panel rounded-xl p-3.5">
+          <div class="grid grid-cols-3 gap-2">
+            <!-- KPI 1 -->
+            <div class="rounded-lg border border-white/[0.06] bg-[#141822] p-2">
+              <span class="text-[9px] text-slate-400">Accuracy</span>
+              <div class="text-xs font-bold text-white">99.8%</div>
+              <svg class="mt-1.5 h-6 w-full" viewBox="0 0 60 22" fill="none">
+                <path d="M2 18 L16 12 L30 15 L44 6 L58 8" stroke="#f3c14b" stroke-width="1.8" stroke-linecap="round"/>
+              </svg>
+            </div>
+
+            <!-- KPI 2 -->
+            <div class="rounded-lg border border-white/[0.06] bg-[#141822] p-2">
+              <span class="text-[9px] text-slate-400">Turnaround</span>
+              <div class="text-xs font-bold text-white">-80%</div>
+              <svg class="mt-1.5 h-6 w-full" viewBox="0 0 60 22" fill="none">
+                <path d="M2 6 L18 10 L32 8 L46 16 L58 18" stroke="#38bdf8" stroke-width="1.8" stroke-linecap="round"/>
+              </svg>
+            </div>
+
+            <!-- Highlight Pill + Sheets Icon -->
+            <div class="flex flex-col justify-between gap-1.5">
+              <div class="rounded-lg border border-amber-400/40 bg-amber-400/15 px-2 py-1.5 text-center">
+                <span class="block text-[10px] font-bold text-amber-300">+28 hrs saved</span>
+              </div>
+              <div class="flex items-center justify-center gap-1 rounded-lg border border-emerald-500/30 bg-emerald-500/10 py-1 text-[10px] font-semibold text-emerald-300">
+                <span>Google Sheets</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-4">
+          <h3 class="text-lg font-bold text-white">Custom Dashboard Previews</h3>
+          <p class="mt-1.5 text-xs leading-relaxed text-slate-400">
+            Turn hours of repetitive tasks into automated reporting dashboards in Sheets, Looker Studio, and Power BI.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom Tech & Tools Strip (Directly Below Cards Like Mockup) -->
+    <div id="tools" class="glass-card mt-8 flex flex-wrap items-center justify-between gap-4 rounded-xl px-6 py-3.5 text-xs">
+      <div class="flex flex-wrap items-center gap-5 font-medium text-slate-200">
+        <span class="flex items-center gap-1.5"><span class="text-amber-400">●</span> Google Workspace</span>
+        <span class="flex items-center gap-1.5"><span class="text-sky-400">●</span> Google Apps Script</span>
+        <span class="flex items-center gap-1.5"><span class="text-emerald-400">●</span> Excel &amp; Sheets</span>
+        <span class="flex items-center gap-1.5"><span class="text-amber-300">●</span> Power BI &amp; Looker</span>
+        <span class="flex items-center gap-1.5"><span class="text-purple-400">●</span> SQL</span>
+        <span class="flex items-center gap-1.5"><span class="text-blue-400">●</span> Word Templates</span>
+      </div>
+      <span class="text-[11px] font-medium text-slate-400">AutomateStudio by Mico</span>
+    </div>
+
+    <!-- Case Studies & Contact Section -->
+    <section id="work" class="mt-16 grid gap-6 lg:grid-cols-12">
+      <!-- Left: 3 Compact Case Studies -->
+      <div id="about" class="glass-card rounded-2xl p-6 sm:p-8 lg:col-span-7">
+        <p class="text-xs font-bold uppercase tracking-widest text-amber-400">Recent Builds</p>
+        <h2 class="mt-1.5 text-2xl font-bold text-white">Real workflows put on autopilot</h2>
+        <p class="mt-2 text-sm text-slate-300">
+          Stop doing manual work twice. Here is how repetitive spreadsheet and reporting bottlenecks turn into clean, self-updating systems:
+        </p>
+
+        <div class="mt-6 space-y-4">
+          <div class="sub-panel rounded-xl p-4">
+            <div class="flex items-center justify-between">
+              <h3 class="text-sm font-bold text-white">Web-Based Attendance &amp; Time-Log App</h3>
+              <span class="text-[11px] font-semibold text-amber-400">Apps Script + HTML</span>
+            </div>
+            <p class="mt-1 text-xs text-slate-400">
+              Replaced manual daily log compilation with a browser check-in portal synced directly to Google Sheets for instant cutoff summaries.
+            </p>
+          </div>
+
+          <div class="sub-panel rounded-xl p-4">
+            <div class="flex items-center justify-between">
+              <h3 class="text-sm font-bold text-white">Auto-Updating Project &amp; Gantt Tracker</h3>
+              <span class="text-[11px] font-semibold text-amber-400">Sheets + Macros</span>
+            </div>
+            <p class="mt-1 text-xs text-slate-400">
+              Automated color-coded Gantt bars and completion percentages that update automatically whenever daily task logs change.
+            </p>
+          </div>
+
+          <div class="sub-panel rounded-xl p-4">
+            <div class="flex items-center justify-between">
+              <h3 class="text-sm font-bold text-white">Claims, Finance &amp; Ops Reporting Pipeline</h3>
+              <span class="text-[11px] font-semibold text-amber-400">SQL + Excel / BI</span>
+            </div>
+            <p class="mt-1 text-xs text-slate-400">
+              Cleaned scattered multi-sheet records into structured tables and live KPI dashboards—cutting hours of weekly report prep.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Free Workflow Audit Contact Card -->
+      <div id="contact" class="glass-card flex flex-col justify-between rounded-2xl p-6 sm:p-8 lg:col-span-5">
+        <div>
+          <p class="text-xs font-bold uppercase tracking-widest text-amber-400">Free Workflow Audit</p>
+          <h2 class="mt-1.5 text-2xl font-bold text-white">Let’s automate your repetitive tasks</h2>
+          <p class="mt-2 text-xs leading-relaxed text-slate-400">
+            Send a quick note about the spreadsheet, report, or manual workflow slowing you down.
           </p>
 
-          <form onsubmit="handleInquiry(event)" class="mt-4 space-y-3">
-            <input type="text" required placeholder="Your name or company"
-              class="w-full rounded-xl border border-slate-800 bg-slate-900/90 px-3.5 py-2.5 text-sm text-white placeholder-slate-500 focus:border-amber-400 focus:outline-none" />
+          <form onsubmit="handleInquiry(event)" class="mt-5 space-y-3">
+            <input type="text" required placeholder="Your name or business"
+              class="w-full rounded-lg border border-white/10 bg-[#0c0f16] px-3.5 py-2.5 text-sm text-white placeholder-slate-500 focus:border-amber-400 focus:outline-none" />
             <input type="email" required placeholder="Your email address"
-              class="w-full rounded-xl border border-slate-800 bg-slate-900/90 px-3.5 py-2.5 text-sm text-white placeholder-slate-500 focus:border-amber-400 focus:outline-none" />
-            <textarea rows="3" required placeholder="What manual task or report do you want to put on autopilot?"
-              class="w-full rounded-xl border border-slate-800 bg-slate-900/90 px-3.5 py-2.5 text-sm text-white placeholder-slate-500 focus:border-amber-400 focus:outline-none"></textarea>
+              class="w-full rounded-lg border border-white/10 bg-[#0c0f16] px-3.5 py-2.5 text-sm text-white placeholder-slate-500 focus:border-amber-400 focus:outline-none" />
+            <textarea rows="3" required placeholder="Which task, sheet, or report do you want on autopilot?"
+              class="w-full rounded-lg border border-white/10 bg-[#0c0f16] px-3.5 py-2.5 text-sm text-white placeholder-slate-500 focus:border-amber-400 focus:outline-none"></textarea>
             <button type="submit"
-              class="w-full rounded-xl bg-amber-400 px-4 py-3 text-sm font-bold text-slate-950 transition hover:bg-amber-300">
-              Send Inquiry
+              class="w-full rounded-lg bg-[#f3c14b] px-4 py-3 text-sm font-bold text-slate-950 transition hover:bg-amber-300">
+              Request Free Audit
             </button>
           </form>
 
           <p id="form-status" class="mt-3 hidden text-xs font-medium text-emerald-400">
-            Ready to send! Connect this form to your email or Google Apps Script web app endpoint to receive leads directly.
+            Message captured! Ready to wire this form to your Google Apps Script web app URL.
           </p>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Footer -->
-  <footer class="border-t border-slate-800/80 py-8 text-center text-xs text-slate-400">
-    <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-5 sm:flex-row sm:px-8">
-      <p><strong class="text-slate-200">AutomateStudio by Mico</strong> — Turn hours of repetitive tasks into automated systems.</p>
-      <p>Built for GitHub Pages</p>
-    </div>
+        <div class="mt-6 border-t border-white/[0.07] pt-4 text-xs text-slate-400">
+          Direct email: <a href="mailto:ce.micovillamor@gmail.com" class="font-medium text-amber-400 hover:underline">ce.micovillamor@gmail.com</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-white/[0.06] py-6 text-center text-xs text-slate-500">
+    © 2026 AutomateStudio by Mico — Fewer manual clicks. Faster reports. Smarter workflows.
   </footer>
 
   <script>
     function handleInquiry(e) {
       e.preventDefault();
-      const status = document.getElementById('form-status');
-      status.classList.remove('hidden');
+      document.getElementById('form-status').classList.remove('hidden');
       e.target.reset();
     }
   </script>
