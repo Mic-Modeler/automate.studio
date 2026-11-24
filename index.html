@@ -41,7 +41,6 @@
   <!-- Top Navbar -->
   <header class="border-b border-white/[0.07] bg-[#16181e]/90 backdrop-blur-md">
     <div class="mx-auto flex max-w-[1160px] items-center justify-between px-6 py-4">
-      <!-- Brand -->
       <a href="#" class="flex items-center gap-2.5">
         <svg class="h-7 w-7 text-[#f4c44e]" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.7">
           <circle cx="8" cy="8" r="3.3" />
@@ -56,7 +55,6 @@
         </div>
       </a>
 
-      <!-- Nav Links -->
       <nav class="hidden items-center gap-8 text-[13px] font-medium text-slate-300 md:flex">
         <a href="#solutions" class="flex items-center gap-1 transition hover:text-[#f4c44e]">
           Solutions
@@ -68,21 +66,19 @@
         <a href="#contact" class="transition hover:text-[#f4c44e]">Contact</a>
       </nav>
 
-      <!-- Free Audit Button -->
       <a href="#contact" class="rounded-lg bg-[#f4c44e] px-4 py-2 text-xs font-bold text-slate-950 shadow-md shadow-amber-500/10 transition hover:bg-amber-300">
         Free Audit
       </a>
     </div>
   </header>
 
-  <!-- Main Container matching exact proportions of the design -->
-  <main class="mx-auto max-w-[1160px] px-6 pt-9 pb-14">
+  <main class="mx-auto max-w-[1160px] px-6 pt-8 pb-14">
 
-    <!-- Row 1: Hero Left (7 cols) + Smart Finance Trackers Card Right (5 cols) -->
-    <div class="grid items-center gap-7 lg:grid-cols-12">
+    <!-- Row 1: Hero Left + Book a 15 min call Button & Insightful Dashboards Card Right -->
+    <div class="grid items-end gap-7 lg:grid-cols-12">
 
       <!-- Left Open Hero Copy -->
-      <div class="lg:col-span-7">
+      <div class="lg:col-span-7 lg:pb-4">
         <h1 class="text-[34px] font-bold tracking-tight text-white sm:text-[42px] leading-[1.14]">
           Stop doing manual work twice.
           <span class="block text-white">Fewer manual clicks. Faster reports.</span>
@@ -90,7 +86,7 @@
         </h1>
 
         <p class="mt-4 max-w-[540px] text-[15px] leading-relaxed text-slate-300">
-          Put your spreadsheets, reports, and workflows on autopilot. Turn hours of repetitive tasks into custom Google Workspace systems, smart formulas, and clean data pipelines.
+          Turn hours of repetitive tasks into automated systems. AI-powered automations, data &amp; lead analytics, custom Google Workspace scripts, and clean reporting pipelines.
         </p>
 
         <div class="mt-6 flex flex-wrap items-center gap-3.5">
@@ -103,76 +99,84 @@
         </div>
       </div>
 
-      <!-- Right Card: Smart Finance Trackers (Exact 3-column mini app UI inside) -->
-      <div class="bento-panel rounded-2xl p-4 lg:col-span-5">
-        <div class="inner-screen rounded-xl p-3">
-          <div class="grid grid-cols-12 gap-2.5">
-            <!-- Left Mini Sidebar -->
-            <div class="col-span-3 border-r border-white/[0.07] pr-2 text-[9px] text-slate-400">
-              <div class="mb-2.5 flex items-center gap-1 font-bold text-[#f4c44e]">
-                <span>❖</span>
-                <span class="truncate">Automate</span>
-              </div>
-              <div class="space-y-1.5">
-                <div class="rounded bg-white/[0.07] px-1.5 py-1 text-slate-200">Overview</div>
-                <div class="px-1.5 py-0.5">Cashflow</div>
-                <div class="px-1.5 py-0.5">Budgets</div>
-                <div class="px-1.5 py-0.5">Reports</div>
-                <div class="px-1.5 py-0.5">Settings</div>
-              </div>
-            </div>
+      <!-- Right Column: Book a 15 min call Button + Card ("Insightful dashboards and analysis") -->
+      <div class="space-y-3 lg:col-span-5">
+        <div class="flex justify-end">
+          <button type="button" onclick="openBookingModal()"
+            class="inline-flex items-center gap-2 rounded-lg bg-[#f4c44e] px-4 py-2 text-xs font-bold text-slate-950 shadow-md shadow-amber-500/15 transition hover:bg-amber-300">
+            <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+            </svg>
+            Book a 15 min call
+          </button>
+        </div>
 
-            <!-- Center ROI + Automated Reconciliation -->
-            <div class="col-span-4 flex flex-col justify-between">
-              <div>
-                <span class="text-[10px] font-semibold text-sky-300">Finance</span>
-                <div class="mt-1.5 rounded-lg border border-white/[0.06] bg-[#191c24] p-2">
-                  <span class="block text-[9px] text-slate-400">Time Saved</span>
-                  <span class="mt-0.5 block text-[15px] font-extrabold text-[#f4c44e]">+34%</span>
+        <div class="bento-panel rounded-2xl p-4">
+          <div class="inner-screen rounded-xl p-3">
+            <div class="grid grid-cols-12 gap-2.5">
+              <div class="col-span-3 border-r border-white/[0.07] pr-2 text-[9px] text-slate-400">
+                <div class="mb-2.5 flex items-center gap-1 font-bold text-[#f4c44e]">
+                  <span>❖</span>
+                  <span class="truncate">Insights</span>
+                </div>
+                <div class="space-y-1.5">
+                  <div class="rounded bg-white/[0.07] px-1.5 py-1 text-slate-200">Overview</div>
+                  <div class="px-1.5 py-0.5">Leads</div>
+                  <div class="px-1.5 py-0.5">Trends</div>
+                  <div class="px-1.5 py-0.5">Reports</div>
+                  <div class="px-1.5 py-0.5">Sync</div>
                 </div>
               </div>
-              <div class="mt-2 rounded-lg border border-white/[0.06] bg-[#191c24] p-2">
-                <div class="mb-1 flex h-4 w-4 items-center justify-center rounded-full bg-amber-400/20 text-[9px] text-[#f4c44e]">$</div>
-                <span class="block text-[9px] leading-tight text-slate-300">Automated Reconciliation</span>
-              </div>
-            </div>
 
-            <!-- Right Line Chart + Monthly Budget Bar Chart -->
-            <div class="col-span-5 space-y-2">
-              <div class="rounded-lg border border-white/[0.06] bg-[#191c24] p-2">
-                <span class="block text-[8px] font-medium text-slate-300">Finance Dashboard</span>
-                <svg class="mt-1.5 h-8 w-full" viewBox="0 0 110 30" fill="none">
-                  <path d="M2 24 C 18 22, 24 14, 40 16 C 55 18, 66 8, 82 11 C 94 13, 100 6, 108 5" stroke="#f4c44e" stroke-width="2" stroke-linecap="round"/>
-                </svg>
+              <div class="col-span-4 flex flex-col justify-between">
+                <div>
+                  <span class="text-[10px] font-semibold text-sky-300">Analytics</span>
+                  <div class="mt-1.5 rounded-lg border border-white/[0.06] bg-[#191c24] p-2">
+                    <span class="block text-[9px] text-slate-400">Time Saved</span>
+                    <span class="mt-0.5 block text-[15px] font-extrabold text-[#f4c44e]">+34%</span>
+                  </div>
+                </div>
+                <div class="mt-2 rounded-lg border border-white/[0.06] bg-[#191c24] p-2">
+                  <div class="mb-1 flex h-4 w-4 items-center justify-center rounded-full bg-amber-400/20 text-[9px] text-[#f4c44e]">◈</div>
+                  <span class="block text-[9px] leading-tight text-slate-300">Automated Lead &amp; KPI Analysis</span>
+                </div>
               </div>
-              <div class="rounded-lg border border-white/[0.06] bg-[#191c24] p-2">
-                <span class="block text-[8px] font-medium text-slate-300">Monthly Budget</span>
-                <div class="mt-2 flex h-10 items-end justify-between gap-1 px-0.5">
-                  <span class="w-1.5 rounded-t bg-[#f4c44e] h-4"></span>
-                  <span class="w-1.5 rounded-t bg-[#f4c44e] h-7"></span>
-                  <span class="w-1.5 rounded-t bg-[#f4c44e] h-6"></span>
-                  <span class="w-1.5 rounded-t bg-[#f4c44e] h-9"></span>
-                  <span class="w-1.5 rounded-t bg-[#f4c44e] h-5"></span>
-                  <span class="w-1.5 rounded-t bg-[#f4c44e] h-8"></span>
-                  <span class="w-1.5 rounded-t bg-[#f4c44e] h-10"></span>
+
+              <div class="col-span-5 space-y-2">
+                <div class="rounded-lg border border-white/[0.06] bg-[#191c24] p-2">
+                  <span class="block text-[8px] font-medium text-slate-300">Performance Trend</span>
+                  <svg class="mt-1.5 h-8 w-full" viewBox="0 0 110 30" fill="none">
+                    <path d="M2 24 C 18 22, 24 14, 40 16 C 55 18, 66 8, 82 11 C 94 13, 100 6, 108 5" stroke="#f4c44e" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <div class="rounded-lg border border-white/[0.06] bg-[#191c24] p-2">
+                  <span class="block text-[8px] font-medium text-slate-300">Weekly Breakdown</span>
+                  <div class="mt-2 flex h-10 items-end justify-between gap-1 px-0.5">
+                    <span class="w-1.5 rounded-t bg-[#f4c44e] h-4"></span>
+                    <span class="w-1.5 rounded-t bg-[#f4c44e] h-7"></span>
+                    <span class="w-1.5 rounded-t bg-[#f4c44e] h-6"></span>
+                    <span class="w-1.5 rounded-t bg-[#f4c44e] h-9"></span>
+                    <span class="w-1.5 rounded-t bg-[#f4c44e] h-5"></span>
+                    <span class="w-1.5 rounded-t bg-[#f4c44e] h-8"></span>
+                    <span class="w-1.5 rounded-t bg-[#f4c44e] h-10"></span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <h2 class="mt-3.5 text-[17px] font-bold text-white">Smart Finance Trackers</h2>
+          <h2 class="mt-3.5 text-[17px] font-bold text-white">Insightful dashboards and analysis</h2>
+        </div>
       </div>
     </div>
 
-    <!-- Row 2: Three Visual Bento Feature Cards (Exact Diagram Structure) -->
+    <!-- Row 2: Three Visual Bento Feature Cards -->
     <div id="solutions" class="mt-6 grid gap-6 lg:grid-cols-3">
 
-      <!-- Card 1: Google Workspace Automation (Node Diagram with Connector Lines) -->
+      <!-- Card 1: AI-Powered Automations -->
       <div class="bento-panel flex flex-col justify-between rounded-2xl p-4">
         <div class="inner-screen relative rounded-xl p-4">
           <div class="relative grid grid-cols-3 items-center gap-2 py-1">
-            <!-- SVG Connector Lines Behind Nodes -->
             <svg class="pointer-events-none absolute inset-0 h-full w-full" viewBox="0 0 300 140" fill="none">
               <path d="M78 34 H118 V70 H132" stroke="#f4c44e" stroke-width="1.5" stroke-opacity="0.75"/>
               <path d="M78 106 H118 V70" stroke="#f4c44e" stroke-width="1.5" stroke-opacity="0.75"/>
@@ -180,7 +184,6 @@
               <path d="M182 70 V106 H222" stroke="#f4c44e" stroke-width="1.5" stroke-opacity="0.75"/>
             </svg>
 
-            <!-- Left Column: Google Forms & Gmail -->
             <div class="relative z-10 flex flex-col items-center justify-between gap-4">
               <div class="flex flex-col items-center">
                 <div class="flex h-9 w-9 items-center justify-center rounded-lg border border-purple-400/30 bg-purple-600/25 text-purple-300">
@@ -198,7 +201,6 @@
               </div>
             </div>
 
-            <!-- Center Column: Hub Icon + Synced Pill -->
             <div class="relative z-10 flex flex-col items-center justify-center">
               <div class="flex h-11 w-11 items-center justify-center rounded-xl border border-[#f4c44e]/50 bg-[#232732] text-[#f4c44e] shadow-lg">
                 <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -208,7 +210,6 @@
               <span class="mt-2 rounded bg-emerald-500/20 px-2 py-0.5 text-[8px] font-semibold text-emerald-300">Synced</span>
             </div>
 
-            <!-- Right Column: Google Sheets & Custom Scripts -->
             <div class="relative z-10 flex flex-col items-center justify-between gap-4">
               <div class="flex flex-col items-center">
                 <div class="flex h-9 w-9 items-center justify-center rounded-lg border border-emerald-400/30 bg-emerald-600/25 text-emerald-300">
@@ -228,76 +229,59 @@
         </div>
 
         <div class="mt-3.5">
-          <h3 class="text-[17px] font-bold text-white">Google Workspace Automation</h3>
+          <h3 class="text-[17px] font-bold text-white">AI-Powered Automations</h3>
           <p class="mt-1 text-xs leading-relaxed text-slate-400">
-            Connect Google Forms, Sheets, Docs, and Gmail with custom Apps Script triggers and automated web dashboards.
+            Automate lead processing, Google Workspace workflows, triggers, and repetitive reporting tasks.
           </p>
         </div>
       </div>
 
-      <!-- Card 2: Intelligent Data Systems (Code Editor + Yellow Arrow Pipeline) -->
+      <!-- Card 2: Airtable & Lead Data Systems -->
       <div class="bento-panel flex flex-col justify-between rounded-2xl p-4">
         <div class="inner-screen rounded-xl p-3">
-          <div class="grid grid-cols-12 gap-2.5">
-            <!-- Left Mini Code Window -->
-            <div class="col-span-6 flex flex-col justify-between rounded-lg border border-white/[0.06] bg-[#0e1015] p-2.5 font-mono-code text-[9px] leading-relaxed">
-              <div>
-                <div class="mb-1.5 flex gap-1">
-                  <span class="h-1.5 w-1.5 rounded-full bg-rose-400"></span>
-                  <span class="h-1.5 w-1.5 rounded-full bg-amber-400"></span>
-                  <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
-                </div>
-                <p><span class="text-sky-400">function</span> <span class="text-[#f4c44e]">runSync</span>() {</p>
-                <p class="pl-2 text-slate-400">const rows = getSheet();</p>
-                <p class="pl-2 text-slate-400">cleanAndFormat(rows);</p>
-                <p class="pl-2 text-emerald-400">return "Synced";</p>
-                <p>}</p>
-              </div>
-              <div class="mt-2 rounded border border-[#f4c44e]/40 bg-[#f4c44e]/10 px-1.5 py-0.5 text-center text-[8px] font-semibold text-[#f4c44e]">
-                Spreadsheet Sync
-              </div>
+          <div class="space-y-2 text-[9px]">
+            <div class="flex items-center justify-between border-b border-white/[0.06] pb-1.5">
+              <span class="font-bold text-[#f4c44e]">Airtable Base • Lead Pipeline</span>
+              <span class="rounded bg-emerald-500/20 px-1.5 py-0.5 text-[8px] text-emerald-300">Auto-Synced</span>
             </div>
-
-            <!-- Right Vertical Flow Nodes -->
-            <div class="col-span-6 flex flex-col justify-between text-[9px]">
-              <div class="flex items-center gap-1.5 rounded border border-white/[0.08] bg-[#1a1d26] px-2 py-1 text-slate-200">
-                <span class="text-emerald-400">⊞</span> Spreadsheet Sync
-              </div>
-              <div class="text-center text-[10px] font-bold text-[#f4c44e] leading-none">↓</div>
-              <div class="flex items-center gap-1.5 rounded border border-white/[0.08] bg-[#1a1d26] px-2 py-1 text-slate-200">
-                <span class="text-[#f4c44e]">⚡</span> Automation Trigger
-              </div>
-              <div class="text-center text-[10px] font-bold text-[#f4c44e] leading-none">↓</div>
-              <div class="flex items-center gap-1.5 rounded border border-white/[0.08] bg-[#1a1d26] px-2 py-1 text-slate-200">
-                <span class="text-sky-400">⛁</span> Clean Database
-              </div>
-              <div class="text-center text-[10px] font-bold text-[#f4c44e] leading-none">↓</div>
-              <div class="flex items-center justify-between">
-                <span class="rounded bg-emerald-500/20 px-1.5 py-0.5 text-[8px] font-semibold text-emerald-300">Success</span>
-                <span class="text-[#f4c44e]">←</span>
-                <span class="rounded border border-white/[0.08] bg-[#1a1d26] px-1.5 py-0.5 text-[8px] text-slate-300">Reports</span>
-              </div>
+            <div class="grid grid-cols-3 gap-1.5 font-semibold text-slate-400">
+              <span>Lead</span>
+              <span>Source</span>
+              <span>Status</span>
+            </div>
+            <div class="grid grid-cols-3 items-center gap-1.5 rounded bg-[#191c24] px-2 py-1 text-slate-200">
+              <span class="truncate">A. Santos</span>
+              <span class="text-sky-300">Web Form</span>
+              <span class="rounded bg-amber-400/20 px-1 py-0.5 text-center text-[8px] text-[#f4c44e]">Qualified</span>
+            </div>
+            <div class="grid grid-cols-3 items-center gap-1.5 rounded bg-[#191c24] px-2 py-1 text-slate-200">
+              <span class="truncate">M. Reyes</span>
+              <span class="text-purple-300">LinkedIn</span>
+              <span class="rounded bg-emerald-500/20 px-1 py-0.5 text-center text-[8px] text-emerald-300">Booked</span>
+            </div>
+            <div class="flex items-center justify-between pt-0.5 text-[8px] text-slate-400">
+              <span>Airtable ↔ Sheets ↔ Analytics</span>
+              <span class="text-[#f4c44e]">Active</span>
             </div>
           </div>
         </div>
 
         <div class="mt-3.5">
-          <h3 class="text-[17px] font-bold text-white">Intelligent Data Systems</h3>
+          <h3 class="text-[17px] font-bold text-white">Airtable &amp; Lead Data Systems</h3>
           <p class="mt-1 text-xs leading-relaxed text-slate-400">
-            Advanced Excel &amp; Google Sheets formulas, data cleanup, SQL structuring, and automated Word/report templates.
+            Organize leads, clean messy datasets, and sync structured records across Airtable, Sheets, and SQL.
           </p>
         </div>
       </div>
 
-      <!-- Card 3: Custom Dashboard Previews (Exact 2x2 Mini Grid + Arrow to Google Sheets) -->
+      <!-- Card 3: Custom Dashboard Previews -->
       <div class="bento-panel flex flex-col justify-between rounded-2xl p-4">
         <div class="inner-screen rounded-xl p-3">
           <div class="grid grid-cols-12 gap-2">
-            <!-- Left 2 KPI Sparkline Cards (7 cols) -->
             <div class="col-span-7 grid grid-cols-2 gap-2">
               <div class="flex flex-col justify-between rounded-lg border border-white/[0.06] bg-[#191c24] p-2">
                 <div>
-                  <span class="block text-[8px] text-slate-400">Efficiency</span>
+                  <span class="block text-[8px] text-slate-400">Lead Velocity</span>
                   <span class="text-xs font-bold text-white">226.0%</span>
                 </div>
                 <svg class="mt-3 h-8 w-full" viewBox="0 0 60 24" fill="none">
@@ -316,7 +300,6 @@
               </div>
             </div>
 
-            <!-- Right Stacked Pill + Google Sheets Tile (5 cols) -->
             <div class="col-span-5 flex flex-col justify-between gap-2">
               <div class="rounded-lg border border-[#f4c44e]/45 bg-[#f4c44e]/15 px-2 py-2.5 text-center">
                 <span class="text-[10px] font-bold text-[#f4c44e]">+28 hrs saved</span>
@@ -340,46 +323,49 @@
         <div class="mt-3.5">
           <h3 class="text-[17px] font-bold text-white">Custom Dashboard Previews</h3>
           <p class="mt-1 text-xs leading-relaxed text-slate-400">
-            Turn hours of repetitive tasks into live KPI dashboards in Google Sheets, Excel, Looker Studio, and Power BI.
+            Turn hours of repetitive tasks into live analytics across Google Sheets, Airtable, Excel, and BI tools.
           </p>
         </div>
       </div>
 
     </div>
 
-    <!-- Bottom Tech & Tools Bar (Exact Single-Line Bar Below Bento Grid) -->
+    <!-- Bottom Tech & Tools Bar (Includes Airtable) -->
     <div id="tools" class="bento-panel mt-6 flex flex-wrap items-center justify-between gap-4 rounded-xl px-6 py-3.5 text-xs">
-      <div class="flex flex-wrap items-center gap-6 font-medium text-slate-200">
-        <span class="flex items-center gap-2"><span class="font-bold text-[#f4c44e]">G</span> Google Workspace</span>
-        <span class="flex items-center gap-2"><span class="text-sky-400">⚡</span> Google Apps Script</span>
-        <span class="flex items-center gap-2"><span class="rounded bg-emerald-600/30 px-1.5 py-0.5 text-[10px] font-bold text-emerald-300">X</span> Excel</span>
-        <span class="flex items-center gap-2"><span class="text-[#f4c44e]">▮▮</span> Power BI</span>
-        <span class="flex items-center gap-2"><span class="text-amber-300">⛁</span> SQL</span>
-        <span class="flex items-center gap-2"><span class="text-sky-300">◈</span> Looker Studio</span>
+      <div class="flex flex-wrap items-center gap-5 font-medium text-slate-200">
+        <span class="flex items-center gap-1.5"><span class="font-bold text-[#f4c44e]">G</span> Google Workspace</span>
+        <span class="flex items-center gap-1.5"><span class="text-sky-400">⚡</span> Google Apps Script</span>
+        <span class="flex items-center gap-1.5"><span class="rounded bg-emerald-600/30 px-1.5 py-0.5 text-[10px] font-bold text-emerald-300">X</span> Excel &amp; Sheets</span>
+        <span class="flex items-center gap-1.5"><span class="text-amber-300">◈</span> Airtable</span>
+        <span class="flex items-center gap-1.5"><span class="text-[#f4c44e]">▮▮</span> Power BI &amp; Looker</span>
+        <span class="flex items-center gap-1.5"><span class="text-sky-300">⛁</span> SQL &amp; Word</span>
       </div>
-      <span class="text-[11px] font-medium text-slate-400">Powered by Custom Automation</span>
+      <span class="text-[11px] font-medium text-slate-400">AI-Powered Automations &amp; Data Analytics</span>
     </div>
 
-    <!-- Compact Work & Free Audit Section Below the Fold -->
+    <!-- Free Workflow Audit Section -->
     <section id="work" class="mt-14 grid gap-6 lg:grid-cols-12">
       <div id="about" class="bento-panel rounded-2xl p-6 sm:p-7 lg:col-span-7">
-        <span class="text-[11px] font-bold uppercase tracking-widest text-[#f4c44e]">Sample Builds</span>
-        <h2 class="mt-1 text-xl font-bold text-white">Fewer manual clicks. Faster reports. Smarter workflows.</h2>
+        <span class="text-[11px] font-bold uppercase tracking-widest text-[#f4c44e]">AI-Powered Automations, Data &amp; Lead Analytics</span>
+        <h2 class="mt-1 text-xl font-bold text-white">Stop doing manual work twice.</h2>
+        <p class="mt-2 text-xs leading-relaxed text-slate-300">
+          I help businesses streamline lead processing, automate repetitive workflows, and turn scattered data into clear, actionable analytics.
+        </p>
         <div class="mt-4 grid gap-3 sm:grid-cols-3">
           <div class="inner-screen rounded-xl p-3.5">
-            <span class="text-[10px] font-semibold text-[#f4c44e]">Apps Script + Web UI</span>
-            <h3 class="mt-1 text-xs font-bold text-white">Attendance &amp; Time-Log Portal</h3>
-            <p class="mt-1 text-[11px] text-slate-400">Web check-in app synced to Google Sheets with instant cutoff reports.</p>
+            <span class="text-[10px] font-semibold text-[#f4c44e]">Workflow Automation</span>
+            <h3 class="mt-1 text-xs font-bold text-white">Apps Script &amp; Triggers</h3>
+            <p class="mt-1 text-[11px] text-slate-400">Automated routing, notifications, and report generation.</p>
           </div>
           <div class="inner-screen rounded-xl p-3.5">
-            <span class="text-[10px] font-semibold text-[#f4c44e]">Sheets Automation</span>
-            <h3 class="mt-1 text-xs font-bold text-white">Auto-Updating Gantt Tracker</h3>
-            <p class="mt-1 text-[11px] text-slate-400">Dynamic timelines and progress bars driven by daily task inputs.</p>
+            <span class="text-[10px] font-semibold text-[#f4c44e]">Lead &amp; Data Ops</span>
+            <h3 class="mt-1 text-xs font-bold text-white">Airtable &amp; Sheet Sync</h3>
+            <p class="mt-1 text-[11px] text-slate-400">Clean lead pipelines, deduplication, and structured trackers.</p>
           </div>
           <div class="inner-screen rounded-xl p-3.5">
-            <span class="text-[10px] font-semibold text-[#f4c44e]">Data &amp; Reporting</span>
-            <h3 class="mt-1 text-xs font-bold text-white">Finance &amp; Ops Summary</h3>
-            <p class="mt-1 text-[11px] text-slate-400">Cleaned multi-sheet logs connected to live KPI dashboards.</p>
+            <span class="text-[10px] font-semibold text-[#f4c44e]">Analytics &amp; Reporting</span>
+            <h3 class="mt-1 text-xs font-bold text-white">Dashboards &amp; Insights</h3>
+            <p class="mt-1 text-[11px] text-slate-400">Weekly summaries and live KPI views for faster decisions.</p>
           </div>
         </div>
       </div>
@@ -387,36 +373,187 @@
       <div id="contact" class="bento-panel rounded-2xl p-6 sm:p-7 lg:col-span-5">
         <span class="text-[11px] font-bold uppercase tracking-widest text-[#f4c44e]">Free Workflow Audit</span>
         <h2 class="mt-1 text-xl font-bold text-white">Put your tasks on autopilot</h2>
-        <form onsubmit="handleInquiry(event)" class="mt-3.5 space-y-2.5">
+        <form onsubmit="submitAuditForm(event)" class="mt-3.5 space-y-2.5">
           <div class="grid gap-2.5 sm:grid-cols-2">
-            <input type="text" required placeholder="Your name"
+            <input type="text" id="audit-name" required placeholder="Your Name"
               class="w-full rounded-lg border border-white/10 bg-[#111318] px-3 py-2 text-xs text-white placeholder-slate-500 focus:border-[#f4c44e] focus:outline-none" />
-            <input type="email" required placeholder="Your email"
+            <input type="email" id="audit-email" required placeholder="Email"
               class="w-full rounded-lg border border-white/10 bg-[#111318] px-3 py-2 text-xs text-white placeholder-slate-500 focus:border-[#f4c44e] focus:outline-none" />
           </div>
-          <textarea rows="2" required placeholder="Which spreadsheet, report, or workflow takes too much manual work?"
+          <textarea id="audit-remarks" rows="2" required placeholder="Remarks / Which workflow, lead process, or report should we automate?"
             class="w-full rounded-lg border border-white/10 bg-[#111318] px-3 py-2 text-xs text-white placeholder-slate-500 focus:border-[#f4c44e] focus:outline-none"></textarea>
           <button type="submit"
             class="w-full rounded-lg bg-[#f4c44e] py-2.5 text-xs font-bold text-slate-950 transition hover:bg-amber-300">
             Request Free Audit
           </button>
         </form>
-        <p id="form-status" class="mt-2 hidden text-[11px] font-medium text-emerald-400">
-          Inquiry captured! Ready to link to your Google Apps Script endpoint.
-        </p>
+        <p id="audit-status" class="mt-2 hidden text-[11px] font-medium text-emerald-400"></p>
       </div>
     </section>
 
   </main>
 
+  <!-- Modal: Book a 15 min call (Date + 15-min interval time slots) -->
+  <div id="booking-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/75 p-4 backdrop-blur-sm">
+    <div class="bento-panel w-full max-w-md rounded-2xl p-6">
+      <div class="flex items-center justify-between border-b border-white/[0.08] pb-3">
+        <div>
+          <span class="text-[10px] font-bold uppercase tracking-widest text-[#f4c44e]">15-Minute Session</span>
+          <h3 class="text-lg font-bold text-white">Book a 15 min call</h3>
+        </div>
+        <button type="button" onclick="closeBookingModal()" class="rounded-lg px-2 py-1 text-sm text-slate-400 hover:bg-white/[0.06] hover:text-white">✕</button>
+      </div>
+
+      <form onsubmit="submitCallBooking(event)" class="mt-4 space-y-3">
+        <div class="grid gap-3 sm:grid-cols-2">
+          <div>
+            <label class="block text-[11px] font-medium text-slate-300">Your Name</label>
+            <input type="text" id="call-name" required placeholder="Full name"
+              class="mt-1 w-full rounded-lg border border-white/10 bg-[#111318] px-3 py-2 text-xs text-white placeholder-slate-500 focus:border-[#f4c44e] focus:outline-none" />
+          </div>
+          <div>
+            <label class="block text-[11px] font-medium text-slate-300">Email</label>
+            <input type="email" id="call-email" required placeholder="you@company.com"
+              class="mt-1 w-full rounded-lg border border-white/10 bg-[#111318] px-3 py-2 text-xs text-white placeholder-slate-500 focus:border-[#f4c44e] focus:outline-none" />
+          </div>
+        </div>
+
+        <div class="grid gap-3 sm:grid-cols-2">
+          <div>
+            <label class="block text-[11px] font-medium text-slate-300">Choose Date</label>
+            <input type="date" id="call-date" required
+              class="mt-1 w-full rounded-lg border border-white/10 bg-[#111318] px-3 py-2 text-xs text-white focus:border-[#f4c44e] focus:outline-none" />
+          </div>
+          <div>
+            <label class="block text-[11px] font-medium text-slate-300">Choose Time (15-min interval)</label>
+            <select id="call-time" required
+              class="mt-1 w-full rounded-lg border border-white/10 bg-[#111318] px-3 py-2 text-xs text-white focus:border-[#f4c44e] focus:outline-none">
+              <option value="">Select 15-min slot</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-[11px] font-medium text-slate-300">Remarks</label>
+          <textarea id="call-remarks" rows="2" placeholder="What would you like to cover in 15 minutes?"
+            class="mt-1 w-full rounded-lg border border-white/10 bg-[#111318] px-3 py-2 text-xs text-white placeholder-slate-500 focus:border-[#f4c44e] focus:outline-none"></textarea>
+        </div>
+
+        <button type="submit" id="call-submit-btn"
+          class="w-full rounded-lg bg-[#f4c44e] py-2.5 text-xs font-bold text-slate-950 transition hover:bg-amber-300">
+          Confirm 15-Min Call &amp; Generate Google Meet
+        </button>
+      </form>
+
+      <p id="call-status" class="mt-3 hidden text-xs font-medium text-emerald-400"></p>
+    </div>
+  </div>
+
   <footer class="border-t border-white/[0.06] py-5 text-center text-[11px] text-slate-500">
-    © 2026 AutomateStudio by Mico — Stop doing manual work twice.
+    © 2026 AutomateStudio by Mico — Fewer manual clicks. Faster reports. Smarter workflows.
   </footer>
 
   <script>
-    function handleInquiry(e) {
+    // Palitan ito ng Web App URL mo na nagtatapos sa /exec (mula sa Deploy -> Manage deployments)
+    const APPS_SCRIPT_URL = "PASTE_YOUR_WEB_APP_EXEC_URL_HERE";
+
+    function populate15MinSlots() {
+      const select = document.getElementById("call-time");
+      select.innerHTML = '<option value="">Select 15-min slot</option>';
+      for (let h = 9; h <= 18; h++) {
+        for (let m = 0; m < 60; m += 15) {
+          if (h === 18 && m > 0) break;
+          const hh = String(h).padStart(2, "0");
+          const mm = String(m).padStart(2, "0");
+          const value = `${hh}:${mm}`;
+          const period = h >= 12 ? "PM" : "AM";
+          const hour12 = h % 12 === 0 ? 12 : h % 12;
+          const label = `${hour12}:${mm} ${period} (${value})`;
+          const opt = document.createElement("option");
+          opt.value = value;
+          opt.textContent = label;
+          select.appendChild(opt);
+        }
+      }
+    }
+
+    function openBookingModal() {
+      const modal = document.getElementById("booking-modal");
+      const dateInput = document.getElementById("call-date");
+      const today = new Date().toISOString().split("T")[0];
+      dateInput.min = today;
+      if (!dateInput.value) dateInput.value = today;
+      populate15MinSlots();
+      document.getElementById("call-status").classList.add("hidden");
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
+    }
+
+    function closeBookingModal() {
+      const modal = document.getElementById("booking-modal");
+      modal.classList.add("hidden");
+      modal.classList.remove("flex");
+    }
+
+    async function sendToAppsScript(payload) {
+      if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL.includes("PASTE_YOUR_WEB_APP_EXEC_URL_HERE")) {
+        return { demo: true };
+      }
+      await fetch(APPS_SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+      return { sent: true };
+    }
+
+    async function submitCallBooking(e) {
       e.preventDefault();
-      document.getElementById('form-status').classList.remove('hidden');
+      const btn = document.getElementById("call-submit-btn");
+      const status = document.getElementById("call-status");
+      btn.disabled = true;
+      btn.textContent = "Scheduling...";
+
+      const payload = {
+        bookingType: "Book a 15 min call",
+        name: document.getElementById("call-name").value.trim(),
+        email: document.getElementById("call-email").value.trim(),
+        date: document.getElementById("call-date").value,
+        time: document.getElementById("call-time").value,
+        remarks: document.getElementById("call-remarks").value.trim()
+      };
+
+      const res = await sendToAppsScript(payload);
+      status.classList.remove("hidden");
+      if (res.demo) {
+        status.textContent = `Selected ${payload.date} at ${payload.time} (15-min slot). Paste your Apps Script /exec URL in APPS_SCRIPT_URL to sync with Calendar, Meet & Gmail.`;
+      } else {
+        status.textContent = `Booked for ${payload.date} at ${payload.time}. Check your Google Calendar, Google Meet link, and ce.micovillamor@gmail.com!`;
+        e.target.reset();
+      }
+
+      btn.disabled = false;
+      btn.textContent = "Confirm 15-Min Call & Generate Google Meet";
+    }
+
+    async function submitAuditForm(e) {
+      e.preventDefault();
+      const status = document.getElementById("audit-status");
+      const payload = {
+        bookingType: "Free Workflow Audit",
+        name: document.getElementById("audit-name").value.trim(),
+        email: document.getElementById("audit-email").value.trim(),
+        date: "",
+        time: "",
+        remarks: document.getElementById("audit-remarks").value.trim()
+      };
+
+      const res = await sendToAppsScript(payload);
+      status.classList.remove("hidden");
+      status.textContent = res.demo
+        ? "Form ready! Add your Apps Script /exec URL to log entries into the 'Book a call' sheet tab."
+        : "Submitted! Logged to Google Sheet and sent to ce.micovillamor@gmail.com.";
       e.target.reset();
     }
   </script>
