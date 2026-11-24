@@ -454,8 +454,7 @@
   </footer>
 
   <script>
-    // Palitan ito ng Web App URL mo na nagtatapos sa /exec (mula sa Deploy -> Manage deployments)
-    const APPS_SCRIPT_URL = "PASTE_YOUR_WEB_APP_EXEC_URL_HERE";
+    const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxsJMlQptCOs067fH5FYl8Y9xLvOGivE__T5EXKDC755l0-wf7q269QdZiZ3C6ppjDu/exec";
 
     function populate15MinSlots() {
       const select = document.getElementById("call-time");
@@ -496,9 +495,6 @@
     }
 
     async function sendToAppsScript(payload) {
-      if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL.includes("PASTE_YOUR_WEB_APP_EXEC_URL_HERE")) {
-        return { demo: true };
-      }
       await fetch(APPS_SCRIPT_URL, {
         method: "POST",
         mode: "no-cors",
@@ -524,14 +520,10 @@
         remarks: document.getElementById("call-remarks").value.trim()
       };
 
-      const res = await sendToAppsScript(payload);
+      await sendToAppsScript(payload);
       status.classList.remove("hidden");
-      if (res.demo) {
-        status.textContent = `Selected ${payload.date} at ${payload.time} (15-min slot). Paste your Apps Script /exec URL in APPS_SCRIPT_URL to sync with Calendar, Meet & Gmail.`;
-      } else {
-        status.textContent = `Booked for ${payload.date} at ${payload.time}. Check your Google Calendar, Google Meet link, and ce.micovillamor@gmail.com!`;
-        e.target.reset();
-      }
+      status.textContent = `Booked for ${payload.date} at ${payload.time}. Check your Google Calendar, Google Meet link, and ce.micovillamor@gmail.com!`;
+      e.target.reset();
 
       btn.disabled = false;
       btn.textContent = "Confirm 15-Min Call & Generate Google Meet";
@@ -549,11 +541,9 @@
         remarks: document.getElementById("audit-remarks").value.trim()
       };
 
-      const res = await sendToAppsScript(payload);
+      await sendToAppsScript(payload);
       status.classList.remove("hidden");
-      status.textContent = res.demo
-        ? "Form ready! Add your Apps Script /exec URL to log entries into the 'Book a call' sheet tab."
-        : "Submitted! Logged to Google Sheet and sent to ce.micovillamor@gmail.com.";
+      status.textContent = "Submitted! Logged to Google Sheet and sent to ce.micovillamor@gmail.com.";
       e.target.reset();
     }
   </script>
